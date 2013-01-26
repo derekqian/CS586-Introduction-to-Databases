@@ -1,0 +1,60 @@
+CREATE TABLE team (
+    team_id integer NOT NULL,
+    name character varying(20),
+    meeting_frequency character varying(20),
+    PRIMARY KEY (team_id)
+)
+
+CREATE TABLE securityclearance (
+    sc_id integer NOT NULL,
+    sc_level character varying(20),
+    description character varying(50),
+    PRIMARY KEY (sc_id)
+)
+
+CREATE TABLE mission (
+    mission_id integer NOT NULL,
+    name character varying(20),
+    access_id integer,
+    team_id integer,
+    mission_status character varying(20),
+    PRIMARY KEY (mission_id),
+    FOREIGN KEY (access_id) REFERENCES securityclearance(sc_id),
+    FOREIGN KEY (team_id) REFERENCES team(team_id)
+)
+
+CREATE TABLE language (
+    lang_id integer NOT NULL,
+    language character varying(20),
+    PRIMARY KEY (lang_id)
+)
+
+CREATE TABLE agent (
+    agent_id integer NOT NULL,
+    first character varying(20),
+    middle character varying(20),
+    last character varying(20),
+    address character varying(50),
+    city character varying(20),
+    country character varying(20),
+    salary integer,
+    clearance_id integer,
+    PRIMARY KEY (agent_id),
+    FOREIGN KEY (clearance_id) REFERENCES securityclearance(sc_id)
+)
+
+CREATE TABLE teamrel (
+    team_id integer NOT NULL,
+    agent_id integer NOT NULL,
+    PRIMARY KEY (team_id, agent_id),
+    FOREIGN KEY (agent_id) REFERENCES agent(agent_id),
+    FOREIGN KEY (team_id) REFERENCES team(team_id)
+)
+
+CREATE TABLE languagerel (
+    lang_id integer NOT NULL,
+    agent_id integer NOT NULL,
+    PRIMARY KEY (lang_id, agent_id),
+    FOREIGN KEY (agent_id) REFERENCES agent(agent_id),
+    FOREIGN KEY (lang_id) REFERENCES language(lang_id)
+)

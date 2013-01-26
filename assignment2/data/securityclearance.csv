@@ -1,0 +1,8 @@
+"sc_id","sc_level","description"
+"1","Presidential","Highest level of access"
+"2","Majestic","Second highest level of access"
+"3","Magellon","Third highest level of access"
+"4","Top Secret","Fourth highest level of access"
+"5","Secret","Fifth highest level of access"
+"6","Classified","Second lowest clearance"
+"7","Unclassified","Lowest level of clearance"
