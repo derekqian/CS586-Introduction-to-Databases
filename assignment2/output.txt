@@ -1,0 +1,66 @@
+dejun@rita:~/database/assignment2$ java -classpath postgresql-9.2-1002.jdbc4.jar: hw2jdbc
+username: w13db10
+password: 
+
+Input the mission please: 
+1
+
+The agents whose access_id need change:
+  Agent ID    First Name    Last Name    Old Clearance ID    New Clearance ID
+----------  ------------  -----------  ------------------  ------------------
+
+The list of languages:
+  Language
+----------
+    Hebrew
+     Hindi
+    Pashtu
+    French
+Vietnamese
+   Bengali
+    Arabic
+  Japanese
+   Turkish
+    Polish
+   Russian
+     Malay
+    German
+   Chinese
+     Farsi
+  Cherokee
+
+dejun@rita:~/database/assignment2$ java -classpath postgresql-9.2-1002.jdbc4.jar: hw2jdbc
+username: w13db10
+password: 
+
+Input the mission please: 
+5
+
+The agents whose access_id need change:
+  Agent ID    First Name    Last Name    Old Clearance ID    New Clearance ID
+----------  ------------  -----------  ------------------  ------------------
+       258          John       Miller                   5                   3
+       353           Tim    McCracken                   5                   3
+       498           Tim       Divola                   5                   3
+       812          Kate         Hall                   5                   3
+       920        Tamara      Lonborg                   5                   3
+
+The list of languages:
+  Language
+----------
+     Farsi
+    French
+   Bengali
+   Russian
+  Cherokee
+   Spanish
+     Malay
+    German
+    Polish
+Portuguese
+    Korean
+   Chinese
+    Pashtu
+   Turkish
+Vietnamese
+
