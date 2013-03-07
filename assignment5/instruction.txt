@@ -1,0 +1,16 @@
+To invoke the stored procedure, follow the steps below,
+
+1. paste the code in code.txt in phpgadmin console, and execute it.
+Note: the code has two parts. The first part create a type for the return value.
+      The second part define a stored procedure named "update_clearance", it takes
+      the mission id as input and return the data required in the homework.
+
+2. execute "SELECT * FROM update_clearance(1)" to get data for mission id 1.
+Note: no rows returned for this mission id.
+
+3. execute "SELECT * FROM update_clearance(5)" to get data for mission id 5.
+Note: 5 rows of data are returned. see the pdf file for screenshot.
+
+4. use "DROP FUNCTION update_clearance(INTEGER)" to clean the function.
+
+5. use "DROP TYPE RESTYPE" to clean the type.

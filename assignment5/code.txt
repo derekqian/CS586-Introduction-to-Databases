@@ -1,0 +1,25 @@
+CREATE TYPE RESTYPE AS (agentid INTEGER, firstname CHAR(32), lastname CHAR(32), oldclearanceid INTEGER, newclearanceid INTEGER);
+
+CREATE OR REPLACE FUNCTION update_clearance(missionid INTEGER)
+RETURNS SETOF RESTYPE
+AS $$
+DECLARE
+  resrow RESTYPE;
+  row RECORD;
+BEGIN
+  FOR row IN SELECT agent.agent_id,agent.first,agent.last,agent.clearance_id,mission.access_id FROM mission,teamrel,agent WHERE mission.mission_id=missionid AND mission.team_id=teamrel.team_id AND teamrel.agent_id=agent.agent_id
+    LOOP
+      IF (row.access_id < row.clearance_id) THEN
+        resrow.agentid := row.agent_id;
+        resrow.firstname := row.first;
+        resrow.lastname := row.last;
+        resrow.oldclearanceid := row.clearance_id;
+        resrow.newclearanceid := row.access_id;
+        UPDATE agent SET clearance_id=row.access_id WHERE agent_id=row.agent_id;
+        RETURN NEXT resrow;
+      END IF;
+    END LOOP;
+END;
+$$ LANGUAGE plpgsql;
+
+
